@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/mobulaa_website/static/css/main.073c9b0a.css",
-    "main.js": "/mobulaa_website/static/js/main.c2083bf2.js",
+    "main.css": "/mobulaa_website/static/css/main.1b43797e.css",
+    "main.js": "/mobulaa_website/static/js/main.0097369f.js",
     "static/js/787.d86262fe.chunk.js": "/mobulaa_website/static/js/787.d86262fe.chunk.js",
-    "static/media/logo.svg": "/mobulaa_website/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/logo_text.svg": "/mobulaa_website/static/media/logo_text.98d47f8e49dac02767e92ce21aec5970.svg",
+    "static/media/logo.svg": "/mobulaa_website/static/media/logo.b03f5db6424c2fd63ada62218e83c245.svg",
     "index.html": "/mobulaa_website/index.html",
-    "main.073c9b0a.css.map": "/mobulaa_website/static/css/main.073c9b0a.css.map",
-    "main.c2083bf2.js.map": "/mobulaa_website/static/js/main.c2083bf2.js.map",
+    "main.1b43797e.css.map": "/mobulaa_website/static/css/main.1b43797e.css.map",
+    "main.0097369f.js.map": "/mobulaa_website/static/js/main.0097369f.js.map",
     "787.d86262fe.chunk.js.map": "/mobulaa_website/static/js/787.d86262fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.c2083bf2.js"
+    "static/css/main.1b43797e.css",
+    "static/js/main.0097369f.js"
   ]
 }
