@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('https://cerozob.github.io/mobulaa_website/sw.js', { scope: 'https://cerozob.github.io/mobulaa_website/' })})}
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/mobulaa_website/sw.js', { scope: '/mobulaa_website/' })})}
