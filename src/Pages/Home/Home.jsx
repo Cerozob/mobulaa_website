@@ -156,6 +156,11 @@ export default function Home() {
 				>
 					Todos nuestros productos
 				</Typography>
+				{JSON.stringify(
+					phones.map(
+						(phone) => `${phone.data.display} - ${phone.data.reference}`
+					)
+				)}
 			</section>
 		</article>
 	);
