@@ -149,3 +149,11 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/dev-dist
+
+.vscode*
+
+package-lock.json
+
+/src/Assets/img
