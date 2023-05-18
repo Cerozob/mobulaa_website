@@ -1,12 +1,12 @@
 import { React, useEffect, useState } from "react";
-import { Box, Tab, Tabs, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { usePrismicDocumentByUID } from "@prismicio/react";
 
 export default function ProductDetail() {
 	const params = useParams();
 	const model = params.model ?? "";
-	const [product, { state, error }] = usePrismicDocumentByUID("product", model);
+	const [product, { error }] = usePrismicDocumentByUID("product", model);
 	const [productObject, setProductObject] = useState({});
 
 	const theme = useTheme();

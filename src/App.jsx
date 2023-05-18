@@ -17,7 +17,7 @@ const baseTheme = createTheme({
 	fonts: {
 		logo: ["VAGBold"].join(","),
 		header: ["Helvetica Neue", "Open Sans"].join(","),
-		body: ["Open Sans", "Roboto"].join(","),
+		body: ["Tenorite", "Open Sans", "Roboto"].join(","),
 	},
 });
 

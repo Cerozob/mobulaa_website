@@ -13,8 +13,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "prismic-dom": "^2.2.7",
-    "prismic-javascript": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-material-ui-carousel": "^3.4.2",
@@ -28,7 +26,8 @@
     "build:dev": "vite build --mode development",
     "serve": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -m 'deploying to gh-pages'"
+    "deploy": "gh-pages -d build -m 'deploying to gh-pages'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
   "eslintConfig": {
     "extends": [
@@ -50,9 +49,12 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.40.0",
+    "eslint-config-react-app": "^7.0.1",
     "gh-pages": "^5.0.0",
     "sass": "^1.62.1",
     "vite": "^4.3.4",
+    "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-pwa": "^0.14.7",
     "vite-plugin-svgr": "^3.2.0",
     "vite-tsconfig-paths": "^4.2.0"

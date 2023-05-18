@@ -1,15 +1,27 @@
 {
   "short_name": "Mobulaa",
-  "name": "Catálogo de productos Mobulaa",
-  "lang": "es",
+  "name": "Catálogo Mobulaa",
+  "lang": "es-CO",
   "orientation": "portrait",
   "description": "Catálogo de productos Mobulaa",
   "icons": [
     {
-      "src": "maskable_icon.png",
+      "src": "maskable_icon_x1024.png",
       "type": "image/png",
       "sizes": "1024x1024",
       "purpose": "maskable any"
+    },
+    {
+      "src": "maskable_icon_x16.png",
+      "type": "image/png",
+      "sizes": "16x16",
+      "purpose": "maskable"
+    },
+    {
+      "src": "maskable_icon_x32.png",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "maskable"
     },
     {
       "src": "maskable_icon_x48.png",
@@ -56,6 +68,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#0c1864"
+  "theme_color": "#27316e",
+  "background_color": "#27316e"
 }

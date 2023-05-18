@@ -43,7 +43,13 @@ export default function NavbarComponent() {
 					padding: "0",
 				}}
 			>
-				<Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+				<Toolbar
+					disableGutters
+					sx={{
+						justifyContent: "space-between",
+						height: "10%",
+					}}
+				>
 					<Box
 						sx={{
 							display: { xs: "flex", lg: "none" },
@@ -61,6 +67,7 @@ export default function NavbarComponent() {
 								display: { md: "flex", lg: "none" },
 								justifyContent: "flex-start",
 								marginLeft: "1rem",
+								maxWidth: "10vw",
 							}}
 						>
 							<MenuIcon />
@@ -111,6 +118,7 @@ export default function NavbarComponent() {
 							padding: "1rem",
 							display: "flex",
 							flexDirection: "row",
+							maxWidth: "80vw",
 						}}
 					>
 						<Link
@@ -186,7 +194,7 @@ export default function NavbarComponent() {
 						})}
 					</Box>
 
-					<Box sx={{ flexGrow: 0, marginRight: "1rem" }}>
+					<Box sx={{ flexGrow: 0, marginRight: "1rem", maxWidth: "10vw" }}>
 						<DarkModeToggleComponent />
 					</Box>
 				</Toolbar>
