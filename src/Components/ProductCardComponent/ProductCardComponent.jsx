@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 
 export default function ProductCardComponent({ product }) {
 	const theme = useTheme();
-	console.log(product);
 	return (
 		<Grid
 			item
@@ -31,8 +30,8 @@ export default function ProductCardComponent({ product }) {
 			<Card
 				sx={{
 					width: "100%",
-					height: "100%",
-					objectFit: "cover",
+					height: "75vh",
+					objectFit: "contain",
 					backgroundColor: theme.palette.primary.main,
 					display: "flex",
 					flexDirection: "column",
@@ -45,7 +44,10 @@ export default function ProductCardComponent({ product }) {
 					style={{
 						textDecoration: "none",
 						color: theme.palette.secondary.main,
-						height: "100%",
+						height: "75%",
+						objectFit: "contain",
+						alignContent: "center",
+						verticalAlign: "middle",
 					}}
 				>
 					<CardMedia
@@ -53,6 +55,10 @@ export default function ProductCardComponent({ product }) {
 						className="cardthumbnail"
 						image={product.data.thumbnail.url}
 						alt={product.data.thumbnail.alt}
+						style={{
+							objectFit: "contain",
+							height: "100%",
+						}}
 					/>
 				</CardActionArea>
 				<CardContent
@@ -60,7 +66,6 @@ export default function ProductCardComponent({ product }) {
 						display: "flex",
 						flexDirection: "column",
 						justifyContent: "space-between",
-						height: "20%",
 						maxWidth: "100%",
 					}}
 				>

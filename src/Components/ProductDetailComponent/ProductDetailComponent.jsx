@@ -19,7 +19,7 @@ export default function ProductDetail() {
 
 	useEffect(() => {
 		if (error) {
-			console.log(error);
+			// TODO handle errors
 		}
 	}, [error]);
 

@@ -1,9 +1,10 @@
 .carouselimg {
-	// width: 100%;
+	width: 100%;
 	// height: auto;
-	height: 95vh;
-	object-fit: cover;
-	min-height: 740px;
+	// height: 95vh;
+
+	object-fit: contain;
+	// min-height: 740px;
 	overflow: hidden;
 	transition-property: transform;
 	transition-duration: 0.5s;

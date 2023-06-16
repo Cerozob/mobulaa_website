@@ -97,7 +97,7 @@ export default function ProductListComponent({
 						textAlign: "center",
 					}}
 				>
-					En este momento no hay ningún {type} disponibles
+					En este momento no hay ningún {type} disponible
 				</Typography>
 			)}
 		</article>

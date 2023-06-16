@@ -26,28 +26,24 @@ export default function Home() {
 
 	useEffect(() => {
 		findProductsByType().then((response) => {
-			// console.log("smartphones", response);
 			setPhones(response.results);
 			setTotalNOfPhones(response.total_results_size);
 		});
 	}, []);
 	useEffect(() => {
 		findProductsByType("Smartwatch").then((response) => {
-			// console.log("reloje", response);
 			setWatches(response.results);
 			setTotalNOfWatches(response.total_results_size);
 		});
 	}, []);
 	useEffect(() => {
 		findProductsByType("Basicphone").then((response) => {
-			// console.log("flecha", response);
 			setBasicphones(response.results);
 			setTotalNOfBasicphones(response.total_results_size);
 		});
 	}, []);
 	useEffect(() => {
 		findFeaturedProducts().then((response) => {
-			// console.log("recomendados", response);
 			setFeatured(response.results);
 			setTotalNOfFeatured(response.total_results_size);
 		});
@@ -85,8 +81,8 @@ export default function Home() {
 					}}
 					style={{
 						overflow: "hidden",
-						minHeight: "740px",
-						height: "90%",
+						// minHeight: "740px",
+						// height: "90%",
 						objectFit: "cover",
 					}}
 				>
