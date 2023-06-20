@@ -26,6 +26,11 @@ function TabPanel(props) {
 export default function Products() {
 	const params = useParams();
 	let type = params.type ?? "smartphones";
+	if (type === "featureds" || type === "anys") {
+		type = "smartphones";
+	} else if (type === "smartwatchs") {
+		type = "smartwatches";
+	}
 	const [value, setValue] = useState(type);
 	const theme = useTheme();
 	const navigate = useNavigate();

@@ -1,6 +1,8 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-import { Grid, Pagination, Typography } from "@mui/material";
+import { Grid, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+
 import {
 	findProductsByType,
 	findSuggestedProducts as findFeaturedProducts,
@@ -16,32 +18,22 @@ export default function ProductListComponent({
 }) {
 	const theme = useTheme();
 
-	const [page, setPage] = React.useState(1);
-	const [totalPages, setTotalPages] = React.useState(1);
 	const [currentItems, setCurrentItems] = React.useState(items);
-
-	const handleChange = (event, value) => {
-		setPage(value);
-	};
-
-	React.useEffect(() => {
-		setTotalPages(Math.ceil(totalItems / itemsPerPage));
-	}, [totalItems, itemsPerPage]);
 
 	React.useEffect(() => {
 		if (type === "Featured") {
-			findFeaturedProducts(page).then((response) => {
+			findFeaturedProducts(1).then((response) => {
 				// console.log("recomendados", response);
 				setCurrentItems(response.results);
 			});
 			// si es search, no se hace nada porque ya se hizo en el search
 		} else if (type !== "Search") {
-			findProductsByType(type, page).then((response) => {
+			findProductsByType(type, 1).then((response) => {
 				// console.log(type, "in productlistcomponent", response);
 				setCurrentItems(response.results);
 			});
 		}
-	}, [page, type]);
+	}, [type]);
 
 	return (
 		<article
@@ -59,43 +51,41 @@ export default function ProductListComponent({
 				>
 					<Grid
 						container
-						spacing={1}
+						xs={12}
+						spacing={0}
 						sx={{
 							width: "100%",
 							minHeight: "70vh",
 							display: "flex",
 							flexDirection: "row",
-							justifyContent: "space-around",
-							alignItems: "stretch",
 						}}
 					>
 						{currentItems.map((item) => (
 							<ProductCardComponent product={item} />
 						))}
 					</Grid>
-					<Pagination
-						count={totalPages}
-						page={page}
-						onChange={handleChange}
-						showFirstButton
-						showLastButton
-						sx={{
-							display: "flex",
-							justifyContent: "center",
-							marginTop: "1rem",
-							flexDirection: "row",
-						}}
-					/>
+					<Link to={`/productos/${type.toLowerCase()}s`}>
+						<Button
+							variant="contained"
+							style={{
+								backgroundColor: theme.palette.primary.main,
+								color: theme.palette.secondary.main,
+								fontFamily: theme.fonts.header,
+								fontWeight: "light",
+								fontSize: "1.5rem",
+								margin: "1rem",
+							}}
+						>
+							Ver más
+						</Button>
+					</Link>
 				</div>
 			) : (
 				<Typography
-					variant="p"
-					style={{
-						fontFamily: theme.fonts.body,
-						color: theme.palette.secondary.main,
-						fontSize: "1rem",
-						textAlign: "center",
-					}}
+					variant="h6"
+					fontFamily={theme.fonts.body}
+					color={theme.palette.secondary.main}
+					textAlign={"start"}
 				>
 					En este momento no hay ningún {type} disponible
 				</Typography>

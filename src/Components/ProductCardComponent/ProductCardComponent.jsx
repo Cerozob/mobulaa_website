@@ -11,6 +11,7 @@ import {
 import "./ProductCardComponent.scss";
 import { PrismicRichText } from "@prismicio/react";
 import { Link } from "react-router-dom";
+import PlaceHolderComponent from "../PlaceHolderComponent/PlaceHolderComponent";
 
 export default function ProductCardComponent({ product }) {
 	const theme = useTheme();
@@ -25,6 +26,7 @@ export default function ProductCardComponent({ product }) {
 				justifyContent: "center",
 				alignItems: "center",
 				padding: "1rem",
+				width: "100%",
 			}}
 		>
 			<Card
@@ -32,7 +34,7 @@ export default function ProductCardComponent({ product }) {
 					width: "100%",
 					height: "75vh",
 					objectFit: "contain",
-					backgroundColor: theme.palette.primary.main,
+					backgroundColor: theme.palette.primary.card,
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "space-between",
@@ -43,23 +45,28 @@ export default function ProductCardComponent({ product }) {
 					to={`/productos/${product.data.type.toLowerCase()}s/${product.uid}`}
 					style={{
 						textDecoration: "none",
-						color: theme.palette.secondary.main,
+						color: theme.palette.secondary.card,
 						height: "75%",
 						objectFit: "contain",
 						alignContent: "center",
 						verticalAlign: "middle",
 					}}
 				>
-					<CardMedia
-						component="img"
-						className="cardthumbnail"
-						image={product.data.thumbnail.url}
-						alt={product.data.thumbnail.alt}
-						style={{
-							objectFit: "contain",
-							height: "100%",
-						}}
-					/>
+					{product.data.thumbnail.url != null ? (
+						<CardMedia
+							component="img"
+							className="cardthumbnail"
+							image={product.data.thumbnail.url}
+							alt={product.data.thumbnail.alt}
+							style={{
+								objectFit: "contain",
+								paddingTop: "16px",
+								height: "100%",
+							}}
+						/>
+					) : (
+						<PlaceHolderComponent />
+					)}
 				</CardActionArea>
 				<CardContent
 					sx={{
@@ -83,7 +90,7 @@ export default function ProductCardComponent({ product }) {
 							}`}
 							style={{
 								textDecoration: "none",
-								color: theme.palette.secondary.main,
+								color: theme.palette.secondary.card,
 							}}
 						>
 							{product.data.display}
@@ -92,7 +99,7 @@ export default function ProductCardComponent({ product }) {
 					<Typography
 						variant="h6"
 						fontFamily={theme.fonts.body}
-						color={theme.palette.secondary.main}
+						color={theme.palette.secondary.card}
 						textAlign={"start"}
 						marginBottom={"5rem"}
 					>

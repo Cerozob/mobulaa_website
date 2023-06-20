@@ -16,8 +16,8 @@ export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 const baseTheme = createTheme({
 	fonts: {
 		logo: ["VAGBold"].join(","),
-		header: ["Helvetica Neue", "Open Sans"].join(","),
-		body: ["Tenorite", "Open Sans", "Roboto"].join(","),
+		header: ["VAGBold", "Helvetica Neue", "Helvetica", "Open Sans"].join(","),
+		body: ["TenoriteRegular", "Open Sans", "Roboto"].join(","),
 	},
 });
 
@@ -27,9 +27,11 @@ const lightTheme = createTheme({
 		mode: "light",
 		primary: {
 			main: "#ffffff",
+			card: "#222222",
 		},
 		secondary: {
 			main: "#222222",
+			card: "#ffffff",
 		},
 		accent: {
 			main: "#27316e",
@@ -43,9 +45,11 @@ const darkTheme = createTheme({
 		mode: "dark",
 		primary: {
 			main: "#27316e",
+			card: "#1e2650",
 		},
 		secondary: {
 			main: "#ffffff",
+			card: "#ffffff",
 		},
 		accent: {
 			main: "#000000",

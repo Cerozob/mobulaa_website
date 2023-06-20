@@ -114,7 +114,7 @@ export default function Home() {
 					variant="h4"
 					style={{
 						display: "flex",
-						padding: "1rem",
+						padding: "1rem 1rem 1rem 2rem",
 						alignContent: "start",
 						fontFamily: titleFont,
 						fontWeight: "bold",
@@ -135,7 +135,8 @@ export default function Home() {
 					variant="h4"
 					style={{
 						display: "flex",
-						padding: "1rem",
+						padding: "1rem 1rem 1rem 2rem",
+
 						alignContent: "start",
 						fontFamily: titleFont,
 						fontWeight: "bold",
@@ -157,7 +158,8 @@ export default function Home() {
 					variant="h4"
 					style={{
 						display: "flex",
-						padding: "1rem",
+						padding: "1rem 1rem 1rem 2rem",
+
 						alignContent: "start",
 						fontFamily: titleFont,
 						fontWeight: "bold",
@@ -178,7 +180,8 @@ export default function Home() {
 					variant="h4"
 					style={{
 						display: "flex",
-						padding: "1rem",
+						padding: "1rem 1rem 1rem 2rem",
+
 						alignContent: "start",
 						fontFamily: titleFont,
 						fontWeight: "bold",
@@ -194,7 +197,7 @@ export default function Home() {
 					totalItems={totalNOfBasicphones}
 				/>
 			</section>
-			<section
+			{/* <section
 				id="all"
 				style={{
 					paddingBottom: "3rem",
@@ -205,7 +208,8 @@ export default function Home() {
 					style={{
 						display: "flex",
 						flexDirection: "column",
-						padding: "1rem",
+						padding: "1rem 1rem 1rem 2rem",
+
 						fontFamily: titleFont,
 						fontWeight: "bold",
 						color: theme.palette.secondary.main,
@@ -224,7 +228,7 @@ export default function Home() {
 					type={"Any"}
 					totalItems={totalNOfPhones + totalNOfWatches + totalNOfBasicphones}
 				/>
-			</section>
+			</section> */}
 		</article>
 	);
 }

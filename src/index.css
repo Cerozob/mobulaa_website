@@ -20,13 +20,37 @@ code {
 
 @font-face {
 	font-family: "VAGLight";
-	src: local("VAGLight"), url("./Assets/fonts/VAG_Light.otf") format("opentype");
-	font-weight: lighter;
+	src: local("VAGLight"), url("./Assets/font/VAG_Light.otf") format("opentype");
+	font-weight: light;
 }
 
 @font-face {
 	font-family: "VAGRegular";
 	src: local("VAGRegular"),
-		url("./Assets/fonts/VAG_Regular.otf") format("opentype");
+		url("./Assets/font/VAG_Regular.otf") format("opentype");
 	font-weight: normal;
+}
+
+@font-face {
+	font-family: "TenoriteRegular";
+	src: local("TenoriteRegular"),
+		url("./Assets/font/Tenorite_Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "TenoriteBold";
+	src: local("TenoriteBold"),
+		url("./Assets/font/Tenorite_Bold.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "TenoriteItalic";
+	src: local("TenoriteItalic"),
+		url("./Assets/font/Tenorite_Italic.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "TenoriteBoldItalic";
+	src: local("TenoriteBoldItalic"),
+		url("./Assets/font/Tenorite_Bold_Italic.ttf") format("truetype");
 }
