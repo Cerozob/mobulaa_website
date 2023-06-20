@@ -28,13 +28,11 @@ export default function Products() {
 	const params = useParams();
 	const theme = useTheme();
 	const navigate = useNavigate();
-	const itemsperpage = 6;
+	const itemsperpage = 8;
 
-	let type = params.type ?? "smartphones";
-	if (type === "featureds" || type === "anys") {
-		type = "smartphones";
-	} else if (type === "smartwatchs") {
-		type = "smartwatches";
+	let type = params.type ?? "Smartphone";
+	if (type === "Featured" || type === "Any") {
+		type = "Smartphone";
 	}
 	const [currentType, setCurrentType] = useState(type);
 	const [items, setItems] = useState([]);
@@ -123,6 +121,7 @@ export default function Products() {
 					type={currentType}
 					totalItems={totalNOfItems}
 					n={Math.min(itemsperpage, totalNOfItems)}
+					itemsPerRow={4}
 					pagination={true}
 				/>
 			</TabPanel>

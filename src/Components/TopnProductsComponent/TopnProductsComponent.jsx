@@ -14,7 +14,8 @@ export default function TopnProductsComponent({
 	type = "Smartphone",
 	totalItems = 0,
 	pagination = true,
-	n = 3, // la diseñadora dijo 3
+	n = 3,
+	itemsPerRow = 3, // la diseñadora dijo 3
 }) {
 	const theme = useTheme();
 
@@ -73,9 +74,10 @@ export default function TopnProductsComponent({
 						}}
 					>
 						{currentItems.map((item) => (
-							<ProductCardComponent product={item} />
+							<ProductCardComponent product={item} itemsPerRow={itemsPerRow} />
 						))}
 					</Grid>
+
 					{pagination ? (
 						<Pagination
 							count={totalPages}
@@ -84,14 +86,14 @@ export default function TopnProductsComponent({
 							showFirstButton
 							showLastButton
 							sx={{
-								display: "flex",
+								display: totalPages > 1 ? "flex" : "none",
 								justifyContent: "center",
 								marginTop: "1rem",
 								flexDirection: "row",
 							}}
 						/>
 					) : (
-						<Link to={`/productos/${type.toLowerCase()}s`}>
+						<Link to={`/productos/${type}`}>
 							<Button
 								variant="contained"
 								style={{

@@ -13,13 +13,13 @@ import { PrismicRichText } from "@prismicio/react";
 import { Link } from "react-router-dom";
 import PlaceHolderComponent from "../PlaceHolderComponent/PlaceHolderComponent";
 
-export default function ProductCardComponent({ product }) {
+export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 	const theme = useTheme();
 	return (
 		<Grid
 			item
 			md={12}
-			lg={4}
+			lg={Math.floor(12 / itemsPerRow)}
 			key={product.uid}
 			sx={{
 				display: "flex",

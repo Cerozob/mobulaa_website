@@ -24,6 +24,8 @@ export default function Home() {
 	const [featured, setFeatured] = useState([]);
 	const [totalNOfFeatured, setTotalNOfFeatured] = useState(0);
 
+	const [intervalcarousel, setIntervalcarousel] = useState(100);
+
 	useEffect(() => {
 		findProductsByType().then((response) => {
 			setPhones(response.results);
@@ -48,6 +50,11 @@ export default function Home() {
 			setTotalNOfFeatured(response.total_results_size);
 		});
 	}, []);
+	useEffect(() => {
+		setTimeout(() => {
+			setIntervalcarousel(5000); // really hacky solution to make the carousel the correct height
+		}, 300);
+	}, []);
 
 	const titleFont = theme.fonts.logo;
 
@@ -58,7 +65,7 @@ export default function Home() {
 					animation="slide"
 					swipe={true}
 					fullHeightHover
-					interval={5000}
+					interval={intervalcarousel}
 					autoPlay={true}
 					indicators={false}
 					cycleNavigation={true}
