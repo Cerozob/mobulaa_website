@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-import { Grid, Button, Typography } from "@mui/material";
+import { Grid, Button, Typography, Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import {
@@ -12,27 +12,41 @@ import ProductCardComponent from "../ProductCardComponent/ProductCardComponent";
 export default function TopnProductsComponent({
 	items = [],
 	type = "Smartphone",
+	totalItems = 0,
 	pagination = true,
 	n = 3, // la diseñadora dijo 3
 }) {
 	const theme = useTheme();
 
+	const [page, setPage] = React.useState(1);
+	const [totalPages, setTotalPages] = React.useState(1);
 	const [currentItems, setCurrentItems] = React.useState(items);
+
+	const handleChange = (event, value) => {
+		setPage(value);
+	};
+
+	React.useEffect(() => {
+		setTotalPages(Math.ceil(totalItems / n));
+	}, [totalItems, n]);
 
 	React.useEffect(() => {
 		if (type === "Featured") {
-			findFeaturedProducts(1, n).then((response) => {
+			findFeaturedProducts(page, n).then((response) => {
 				// console.log("recomendados", response);
 				setCurrentItems(response.results);
 			});
 			// si es search, no se hace nada porque ya se hizo en el search
 		} else if (type !== "Search") {
-			findProductsByType(type, 1, n).then((response) => {
+			console.log("type", type);
+			console.log("page", page);
+			console.log("n", n);
+			findProductsByType(type, page, n).then((response) => {
 				// console.log(type, "in productlistcomponent", response);
 				setCurrentItems(response.results);
 			});
 		}
-	}, [type]);
+	}, [n, page, type]);
 
 	return (
 		<article
@@ -50,7 +64,6 @@ export default function TopnProductsComponent({
 				>
 					<Grid
 						container
-						xs={12}
 						spacing={0}
 						sx={{
 							width: "100%",
@@ -64,7 +77,19 @@ export default function TopnProductsComponent({
 						))}
 					</Grid>
 					{pagination ? (
-						<div></div>
+						<Pagination
+							count={totalPages}
+							page={page}
+							onChange={handleChange}
+							showFirstButton
+							showLastButton
+							sx={{
+								display: "flex",
+								justifyContent: "center",
+								marginTop: "1rem",
+								flexDirection: "row",
+							}}
+						/>
 					) : (
 						<Link to={`/productos/${type.toLowerCase()}s`}>
 							<Button
@@ -84,14 +109,24 @@ export default function TopnProductsComponent({
 					)}
 				</div>
 			) : (
-				<Typography
-					variant="h6"
-					fontFamily={theme.fonts.body}
-					color={theme.palette.secondary.main}
-					textAlign={"start"}
+				<div
+					style={{
+						minHeight: "90vh",
+						display: "flex",
+						justifyContent: "center",
+						flexDirection: "column",
+						alignItems: "center",
+					}}
 				>
-					En este momento no hay ningún {type} disponible
-				</Typography>
+					<Typography
+						variant="h6"
+						fontFamily={theme.fonts.body}
+						color={theme.palette.secondary.main}
+						textAlign={"start"}
+					>
+						En este momento no hay ningún {type} disponible
+					</Typography>
+				</div>
 			)}
 		</article>
 	);

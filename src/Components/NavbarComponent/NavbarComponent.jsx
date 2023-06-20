@@ -50,7 +50,7 @@ export default function NavbarComponent() {
 						height: "10%",
 					}}
 				>
-					<Grid container xs={12}>
+					<Grid container>
 						<Grid
 							item
 							xs={1}

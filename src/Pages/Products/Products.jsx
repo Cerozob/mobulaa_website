@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, Tab, Tabs, Typography, useTheme } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-
+import TopnProductsComponent from "../../Components/TopnProductsComponent/TopnProductsComponent";
+import { findProductsByType } from "../../prismic";
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -25,18 +26,29 @@ function TabPanel(props) {
 
 export default function Products() {
 	const params = useParams();
+	const theme = useTheme();
+	const navigate = useNavigate();
+	const itemsperpage = 6;
+
 	let type = params.type ?? "smartphones";
 	if (type === "featureds" || type === "anys") {
 		type = "smartphones";
 	} else if (type === "smartwatchs") {
 		type = "smartwatches";
 	}
-	const [value, setValue] = useState(type);
-	const theme = useTheme();
-	const navigate = useNavigate();
+	const [currentType, setCurrentType] = useState(type);
+	const [items, setItems] = useState([]);
+	const [totalNOfItems, setTotalNOfItems] = useState(0);
+
+	useEffect(() => {
+		findProductsByType(currentType, 1, itemsperpage).then((response) => {
+			setItems(response.results);
+			setTotalNOfItems(response.total_results_size);
+		});
+	}, [currentType]);
 
 	const handleChange = (event, newValue) => {
-		setValue(newValue);
+		setCurrentType(newValue);
 		navigate("../productos/" + newValue);
 	};
 
@@ -48,7 +60,7 @@ export default function Products() {
 			}}
 		>
 			<Tabs
-				value={value}
+				value={currentType}
 				onChange={handleChange}
 				centered
 				textColor="secondary"
@@ -69,7 +81,7 @@ export default function Products() {
 							Smartphones
 						</Typography>
 					}
-					value={"smartphones"}
+					value={"Smartphone"}
 				/>
 				<Tab
 					label={
@@ -83,7 +95,7 @@ export default function Products() {
 							Smartwatches
 						</Typography>
 					}
-					value={"smartwatches"}
+					value={"Smartwatch"}
 				/>
 				<Tab
 					label={
@@ -97,34 +109,22 @@ export default function Products() {
 							Basic phones
 						</Typography>
 					}
-					value={"basicphones"}
+					value={"Basicphone"}
 				/>
 			</Tabs>
 			<TabPanel
-				value={value}
-				index={"smartphones"}
+				value={currentType}
+				index={currentType}
 				dir={theme.direction}
 				height="100%"
 			>
-				<Typography
-					sx={{ fontSize: "56px", p: 3, color: theme.palette.secondary.main }}
-				>
-					Smartphones WIP
-				</Typography>
-			</TabPanel>
-			<TabPanel value={value} index={"smartwatches"} dir={theme.direction}>
-				<Typography
-					sx={{ fontSize: "56px", p: 3, color: theme.palette.secondary.main }}
-				>
-					Smartwatches WIP
-				</Typography>
-			</TabPanel>
-			<TabPanel value={value} index={"basicphones"} dir={theme.direction}>
-				<Typography
-					sx={{ fontSize: "56px", p: 3, color: theme.palette.secondary.main }}
-				>
-					Basic phones WIP
-				</Typography>
+				<TopnProductsComponent
+					items={items.map((item) => item.data)}
+					type={currentType}
+					totalItems={totalNOfItems}
+					n={Math.min(itemsperpage, totalNOfItems)}
+					pagination={true}
+				/>
 			</TabPanel>
 		</Box>
 	);
