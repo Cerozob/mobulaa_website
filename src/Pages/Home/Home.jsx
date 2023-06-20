@@ -5,7 +5,7 @@ import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import { Typography } from "@mui/material";
-import ProductListComponent from "../../Components/ProductListComponent/ProductListComponent";
+import TopnProductsComponent from "../../Components/TopnProductsComponent/TopnProductsComponent";
 import {
 	findProductsByType,
 	findSuggestedProducts as findFeaturedProducts,
@@ -124,10 +124,11 @@ export default function Home() {
 				>
 					Recomendados
 				</Typography>
-				<ProductListComponent
+				<TopnProductsComponent
 					items={featured.map((product) => product.data)}
 					type="Featured"
 					totalItems={totalNOfFeatured}
+					pagination={false}
 				/>
 			</section>
 			<section id="smartphones">
@@ -147,10 +148,11 @@ export default function Home() {
 					Smartphones
 				</Typography>
 
-				<ProductListComponent
+				<TopnProductsComponent
 					items={phones.map((phone) => phone.data)}
 					type="Smartphone"
 					totalItems={totalNOfPhones}
+					pagination={false}
 				/>
 			</section>
 			<section id="smartwatches">
@@ -169,10 +171,11 @@ export default function Home() {
 				>
 					Smartwatches
 				</Typography>
-				<ProductListComponent
+				<TopnProductsComponent
 					items={watches.map((watch) => watch.data)}
 					type="Smartwatch"
 					totalItems={totalNOfWatches}
+					pagination={false}
 				/>
 			</section>
 			<section id="basicphones">
@@ -191,10 +194,11 @@ export default function Home() {
 				>
 					Basicphones
 				</Typography>
-				<ProductListComponent
+				<TopnProductsComponent
 					items={basicphones.map((phone) => phone.data)}
 					type={"Basicphone"}
 					totalItems={totalNOfBasicphones}
+					pagination={false}
 				/>
 			</section>
 			{/* <section
@@ -218,7 +222,7 @@ export default function Home() {
 				>
 					Todos nuestros productos
 				</Typography>
-				<ProductListComponent
+				<TopnProductsComponent
 					items={phones
 						.map((phone) => phone.data)
 						.concat(
@@ -227,6 +231,7 @@ export default function Home() {
 						)}
 					type={"Any"}
 					totalItems={totalNOfPhones + totalNOfWatches + totalNOfBasicphones}
+					pagination={false}
 				/>
 			</section> */}
 		</article>

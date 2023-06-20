@@ -53,6 +53,9 @@ export default function Products() {
 				centered
 				textColor="secondary"
 				indicatorColor="secondary"
+				variant="fullWidth"
+				scrollButtons="auto"
+				allowScrollButtonsMobile
 			>
 				<Tab
 					label={

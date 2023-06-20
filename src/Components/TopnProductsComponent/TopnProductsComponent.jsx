@@ -9,12 +9,11 @@ import {
 } from "../../prismic";
 import ProductCardComponent from "../ProductCardComponent/ProductCardComponent";
 
-export default function ProductListComponent({
+export default function TopnProductsComponent({
 	items = [],
 	type = "Smartphone",
-	totalItems = 0,
 	pagination = true,
-	itemsPerPage = 3, // la diseñadora dijo 3
+	n = 3, // la diseñadora dijo 3
 }) {
 	const theme = useTheme();
 
@@ -22,13 +21,13 @@ export default function ProductListComponent({
 
 	React.useEffect(() => {
 		if (type === "Featured") {
-			findFeaturedProducts(1).then((response) => {
+			findFeaturedProducts(1, n).then((response) => {
 				// console.log("recomendados", response);
 				setCurrentItems(response.results);
 			});
 			// si es search, no se hace nada porque ya se hizo en el search
 		} else if (type !== "Search") {
-			findProductsByType(type, 1).then((response) => {
+			findProductsByType(type, 1, n).then((response) => {
 				// console.log(type, "in productlistcomponent", response);
 				setCurrentItems(response.results);
 			});
@@ -43,7 +42,7 @@ export default function ProductListComponent({
 				alignItems: "center",
 			}}
 		>
-			{items.length > 0 && pagination ? (
+			{items.length > 0 ? (
 				<div
 					style={{
 						width: "95%",
@@ -64,21 +63,25 @@ export default function ProductListComponent({
 							<ProductCardComponent product={item} />
 						))}
 					</Grid>
-					<Link to={`/productos/${type.toLowerCase()}s`}>
-						<Button
-							variant="contained"
-							style={{
-								backgroundColor: theme.palette.primary.main,
-								color: theme.palette.secondary.main,
-								fontFamily: theme.fonts.header,
-								fontWeight: "light",
-								fontSize: "1.5rem",
-								margin: "1rem",
-							}}
-						>
-							Ver más
-						</Button>
-					</Link>
+					{pagination ? (
+						<div></div>
+					) : (
+						<Link to={`/productos/${type.toLowerCase()}s`}>
+							<Button
+								variant="contained"
+								style={{
+									backgroundColor: theme.palette.primary.main,
+									color: theme.palette.secondary.main,
+									fontFamily: theme.fonts.header,
+									fontWeight: "light",
+									fontSize: "1.5rem",
+									margin: "1rem",
+								}}
+							>
+								Ver más
+							</Button>
+						</Link>
+					)}
 				</div>
 			) : (
 				<Typography
