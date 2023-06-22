@@ -18,7 +18,8 @@ export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 	return (
 		<Grid
 			item
-			md={12}
+			sm={12}
+			md={Math.floor(24 / itemsPerRow)}
 			lg={Math.floor(12 / itemsPerRow)}
 			key={product.uid}
 			sx={{
@@ -38,6 +39,7 @@ export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "space-between",
+					borderRadius: "0.5rem",
 				}}
 			>
 				<CardActionArea
@@ -46,10 +48,12 @@ export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 					style={{
 						textDecoration: "none",
 						color: theme.palette.secondary.card,
-						height: "75%",
+						height: "70%",
+						width: "95%",
 						objectFit: "contain",
 						alignContent: "center",
 						verticalAlign: "middle",
+						margin: "1rem auto 0 auto",
 					}}
 				>
 					{product.data.thumbnail.url != null ? (
@@ -59,9 +63,9 @@ export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 							image={product.data.thumbnail.url}
 							alt={product.data.thumbnail.alt}
 							style={{
-								objectFit: "contain",
-								paddingTop: "16px",
-								height: "100%",
+								// TODO ver si contain o cover
+								objectFit: "cover",
+								borderRadius: "0.5rem",
 							}}
 						/>
 					) : (
@@ -74,6 +78,8 @@ export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 						flexDirection: "column",
 						justifyContent: "space-between",
 						maxWidth: "100%",
+						bottom: "0",
+						height: "20%",
 					}}
 				>
 					<Typography
@@ -82,6 +88,7 @@ export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 							fontFamily: theme.fonts.header,
 							fontWeight: "bold",
 							textAlign: "start",
+							color: theme.palette.secondary.card,
 						}}
 					>
 						<Link
@@ -96,12 +103,12 @@ export default function ProductCardComponent({ product, itemsPerRow = 3 }) {
 							{product.data.display}
 						</Link>
 					</Typography>
+
 					<Typography
 						variant="h6"
 						fontFamily={theme.fonts.body}
 						color={theme.palette.secondary.card}
 						textAlign={"start"}
-						marginBottom={"5rem"}
 					>
 						<PrismicRichText field={product.data.shortdescription} />
 					</Typography>

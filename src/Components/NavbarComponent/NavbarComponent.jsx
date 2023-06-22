@@ -185,6 +185,7 @@ export default function NavbarComponent() {
 										<Button
 											style={{
 												backgroundColor: theme.palette.secondary.main,
+												borderRadius: "0.5rem",
 											}}
 											disableRipple={true}
 											disableFocusRipple={true}

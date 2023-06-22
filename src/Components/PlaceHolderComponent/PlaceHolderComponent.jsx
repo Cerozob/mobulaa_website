@@ -9,10 +9,9 @@ export default function PlaceHolderComponent() {
 			style={{
 				height: "95%",
 				// backgroundColor: theme.palette.primary.main,
-				borderRadius: "16px",
+				borderRadius: "0.5rem",
 				border: "0.3rem solid",
 				borderColor: theme.palette.secondary.card,
-				margin: "1rem",
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
@@ -24,6 +23,7 @@ export default function PlaceHolderComponent() {
 					fontFamily: theme.fonts.header,
 					fontWeight: "light",
 					fontSize: "1.5rem",
+					color: theme.palette.secondary.card,
 				}}
 			>
 				Contenido no disponible

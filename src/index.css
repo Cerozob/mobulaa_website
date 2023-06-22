@@ -46,7 +46,7 @@ code {
 @font-face {
 	font-family: "TenoriteItalic";
 	src: local("TenoriteItalic"),
-		url("./Assets/font/Tenorite_Italic.ttf") format("truetype");
+		url("./Assets/font/Tenorite_Regular_Italic.ttf") format("truetype");
 }
 
 @font-face {

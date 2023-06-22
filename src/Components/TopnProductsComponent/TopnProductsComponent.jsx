@@ -34,16 +34,11 @@ export default function TopnProductsComponent({
 	React.useEffect(() => {
 		if (type === "Featured") {
 			findFeaturedProducts(page, n).then((response) => {
-				// console.log("recomendados", response);
 				setCurrentItems(response.results);
 			});
 			// si es search, no se hace nada porque ya se hizo en el search
 		} else if (type !== "Search") {
-			console.log("type", type);
-			console.log("page", page);
-			console.log("n", n);
 			findProductsByType(type, page, n).then((response) => {
-				// console.log(type, "in productlistcomponent", response);
 				setCurrentItems(response.results);
 			});
 		}
@@ -97,12 +92,13 @@ export default function TopnProductsComponent({
 							<Button
 								variant="contained"
 								style={{
-									backgroundColor: theme.palette.primary.main,
-									color: theme.palette.secondary.main,
+									backgroundColor: theme.palette.primary.card,
+									color: theme.palette.secondary.card,
 									fontFamily: theme.fonts.header,
 									fontWeight: "light",
 									fontSize: "1.5rem",
 									margin: "1rem",
+									borderRadius: "0.5rem",
 								}}
 							>
 								Ver más
@@ -124,7 +120,11 @@ export default function TopnProductsComponent({
 						variant="h6"
 						fontFamily={theme.fonts.body}
 						color={theme.palette.secondary.main}
-						textAlign={"start"}
+						textAlign={"center"}
+						sx={{
+							marginLeft: "1rem",
+							marginRight: "1rem",
+						}}
 					>
 						En este momento no hay ningún {type} disponible
 					</Typography>

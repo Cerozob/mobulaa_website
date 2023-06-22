@@ -1,0 +1,10 @@
+.scaleeffect {
+	transition-property: transform;
+	transition-duration: 0.5s;
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	&:hover,
+	&:active {
+		cursor: pointer;
+		transform: scale(0.95);
+	}
+}
