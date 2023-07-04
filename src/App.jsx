@@ -7,9 +7,9 @@ import About from "./Pages/About/About";
 import Contacto from "./Pages/Contacto/Contacto";
 import Soporte from "./Pages/Soporte/Soporte";
 import Products from "./Pages/Products/Products";
+import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import NavbarComponent from "./Components/NavbarComponent/NavbarComponent";
-import ProductDetailComponent from "./Components/ProductDetailComponent/ProductDetailComponent";
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -89,10 +89,7 @@ function App() {
 						<Route exact path="/" element={<Home />} />
 						<Route path="/home" element={<Home />} />
 						<Route path="/productos/:type?" element={<Products />} />
-						<Route
-							path="/productos/:type/:model"
-							element={<ProductDetailComponent />}
-						/>
+						<Route path="/productos/:type/:model" element={<ProductDetail />} />
 						<Route path="/nosotros" element={<About />} />
 						<Route path="/contacto" element={<Contacto />} />
 						<Route path="/soporte" element={<Soporte />} />

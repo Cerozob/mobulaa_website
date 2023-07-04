@@ -3,7 +3,7 @@ import { Grid, Link, Paper, Typography, useTheme } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { PrismicRichText, usePrismicDocumentByUID } from "@prismicio/react";
 import { Masonry } from "@mui/lab";
-import "./ProductDetailComponent.scss";
+import "./ProductDetail.scss";
 // returns a random height in % between lowBound and HighBound
 function getRandomHeightValue(lowBound = 35, HighBound = 75) {
 	return Math.random() * (HighBound - lowBound) + lowBound;
@@ -76,6 +76,23 @@ export default function ProductDetail() {
 					flexWrap: "wrap",
 				}}
 			>
+				<Grid item xs={12} sm={12} md={12} lg={6} sx={{ padding: "1rem" }}>
+					{currentColor && (
+						<img
+							src={currentColor.image.url}
+							alt={currentColor.image.alt}
+							style={{
+								borderRadius: "0.5rem",
+								display: "block",
+								objectFit: "cover",
+								backgroundColor: theme.palette.primary.dark,
+								width: `100%`,
+								maxHeight: `75vh`,
+								objectPosition: "top center",
+							}}
+						/>
+					)}
+				</Grid>
 				<Grid
 					item
 					xs={12}
@@ -152,6 +169,7 @@ export default function ProductDetail() {
 								let thelink = link.url;
 								return (
 									<Link
+										key={link.url}
 										className="scaleeffect"
 										href={thelink}
 										target={link.target}
@@ -260,23 +278,7 @@ export default function ProductDetail() {
 						</Paper>
 					</Grid>
 				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={6} sx={{ padding: "1rem" }}>
-					{currentColor && (
-						<img
-							src={currentColor.image.url}
-							alt={currentColor.image.alt}
-							style={{
-								borderRadius: "0.5rem",
-								display: "block",
-								objectFit: "cover",
-								backgroundColor: theme.palette.primary.dark,
-								width: `100%`,
-								maxHeight: `75vh`,
-								objectPosition: "top center",
-							}}
-						/>
-					)}
-				</Grid>
+
 				<Grid
 					container
 					sx={{
@@ -340,6 +342,7 @@ export default function ProductDetail() {
 								let randomheight = getRandomHeightValue();
 								return (
 									<img
+										key={image.image.url}
 										src={image.image.url}
 										alt={image.image.alt}
 										loading="lazy"

@@ -183,8 +183,8 @@ export default function NavbarComponent() {
 								return (
 									<MenuItem key={page} onClick={handleCloseNavMenu}>
 										<Button
+										variant="text"
 											style={{
-												backgroundColor: theme.palette.secondary.main,
 												borderRadius: "0.5rem",
 											}}
 											disableRipple={true}
@@ -196,8 +196,9 @@ export default function NavbarComponent() {
 													sx={{
 														textAlign: "center",
 														textDecoration: "none",
-														color: theme.palette.primary.main,
-														fontWeight: "bold",
+														color: theme.palette.secondary.main,
+
+														fontFamily: "VAGRegular",
 													}}
 												>
 													{page}

@@ -11,6 +11,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         base: "/mobulaa_website/",
         server: {
             open: true,
+            host: true,
         },
         build: {
             outDir: 'build',
@@ -30,8 +31,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 exclude: ['node_modules/**', 'build/**', '.git/**', 'public/**'],
                 fix: true
             }
-        )
-        ],
+        )],
     };
 
     return configs
