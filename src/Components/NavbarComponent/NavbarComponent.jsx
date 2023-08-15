@@ -1,19 +1,19 @@
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "./../../Assets/icon/logo.svg";
 import { ReactComponent as LogoText } from "./../../Assets/icon/logo_text.svg";
+import { useTheme } from "@mui/material/styles";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import DarkModeToggleComponent from "../DarkModeToggle/DarkModeToggleComponent";
+import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import Grid from "@mui/material/Grid";
-import DarkModeToggleComponent from "../DarkModeToggle/DarkModeToggleComponent";
-import { Link } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 const pages = {
 	Nosotros: "/nosotros",
